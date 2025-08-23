@@ -1,0 +1,522 @@
+.landingPageContainer {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.landingPageContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.landingPageContainer nav {
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.landingPageContainer nav h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #FF9839, #FF6B6B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.landingPageContainer nav .navlist {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.landingPageContainer nav .navlist p {
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.landingPageContainer nav .navlist p:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.landingPageContainer nav .navlist div[role='button'] {
+  background: linear-gradient(45deg, #FF9839, #FF6B6B);
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 152, 57, 0.3);
+}
+
+.landingPageContainer nav .navlist div[role='button']:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 152, 57, 0.4);
+}
+
+.landingMainContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5rem;
+  height: calc(100vh - 100px);
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.landingMainContainer > div:nth-child(1) {
+  flex: 1;
+  max-width: 600px;
+}
+
+.landingMainContainer > div:nth-child(1) h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.landingMainContainer > div:nth-child(1) p {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.landingMainContainer > div:nth-child(1) div[role='button'] {
+  background: linear-gradient(45deg, #FF9839, #FF6B6B);
+  width: fit-content;
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 152, 57, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.landingMainContainer > div:nth-child(1) div[role='button']::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.landingMainContainer > div:nth-child(1) div[role='button']:hover::before {
+  left: 100%;
+}
+
+.landingMainContainer > div:nth-child(1) div[role='button']:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(255, 152, 57, 0.5);
+}
+
+.landingMainContainer > div:nth-child(1) div[role='button'] a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.landingMainContainer > div:nth-child(2) {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landingMainContainer > div:nth-child(2) img {
+  height: 80vh;
+  width: auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navBar h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #FF9839, #FF6B6B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navBar > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navBar .MuiIconButton-root {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.navBar .MuiIconButton-root:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.navBar p {
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.navBar p:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navBar .MuiButton-root {
+  background: linear-gradient(45deg, #FF6B6B, #FF9839);
+  color: white;
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  text-transform: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.navBar .MuiButton-root:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.meetContainer {
+  display: flex;
+  padding: 3rem;
+  min-height: calc(100vh - 80px);
+  gap: 4rem;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.leftPanel {
+  flex: 1;
+  max-width: 600px;
+  text-align: center;
+}
+
+.leftPanel h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.3;
+}
+
+.leftPanel .MuiTextField-root {
+  margin-right: 1rem;
+  width: 300px;
+}
+
+.leftPanel .MuiTextField-root .MuiOutlinedInput-root {
+  border-radius: 25px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.leftPanel .MuiButton-root {
+  background: linear-gradient(45deg, #FF9839, #FF6B6B);
+  color: white;
+  border-radius: 25px;
+  padding: 0.8rem 2rem;
+  text-transform: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 152, 57, 0.3);
+}
+
+.leftPanel .MuiButton-root:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 152, 57, 0.4);
+}
+
+.rightPanel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightPanel > img {
+  width: 400px;
+  height: auto;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.rightPanel > img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .landingMainContainer {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .landingMainContainer > div:nth-child(1) h1 {
+    font-size: 2.5rem;
+  }
+  
+  .meetContainer {
+    flex-direction: column;
+    padding: 2rem;
+  }
+  
+  .leftPanel .MuiTextField-root {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+.authContainer {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+.authBackground {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+}
+
+.authFormContainer {
+    position: relative;
+    z-index: 10;
+}
+
+.authPaper {
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.authHeader {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.authIcon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #FF9839, #FF6B6B);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 8px 25px rgba(255, 152, 57, 0.3);
+}
+
+.authTitle {
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.authSubtitle {
+    color: #666;
+    line-height: 1.5;
+}
+
+.authAlert {
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.authInput .MuiOutlinedInput-root {
+    border-radius: 12px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.authInput .MuiOutlinedInput-root:hover {
+    background: #f0f0f0;
+}
+
+.authInput .MuiOutlinedInput-root.Mui-focused {
+    background: white;
+    box-shadow: 0 0 0 2px rgba(255, 152, 57, 0.2);
+}
+
+.authSubmitButton {
+    background: linear-gradient(45deg, #FF9839, #FF6B6B);
+    color: white;
+    border-radius: 12px;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 152, 57, 0.3);
+    margin-top: 10px;
+}
+
+.authSubmitButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 152, 57, 0.4);
+}
+
+.authToggle {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.authToggleLink {
+    color: #FF9839;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.authToggleLink:hover {
+    color: #FF6B6B;
+    text-decoration: underline;
+}
+
+/* History Page Styles */
+.historyContainer {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 2rem;
+}
+
+.historyHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.historyHeader h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.historyGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.historyCard {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.historyCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 152, 57, 0.3);
+}
+
+.historyCard h3 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.historyCard p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.historyCard .MuiButton-root {
+    background: linear-gradient(45deg, #FF9839, #FF6B6B);
+    color: white;
+    border-radius: 25px;
+    text-transform: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.historyCard .MuiButton-root:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 152, 57, 0.4);
+}
