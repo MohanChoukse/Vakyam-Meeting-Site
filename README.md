@@ -1,4 +1,4 @@
-# Zoom
+Vakyam Meeting Site
 
 > A full-stack video conferencing web application built using MERN stack, WebRTC, and Socket.io.
 
@@ -6,7 +6,7 @@
 
 ## Project Overview
 
-**Zoom** is a complete video conferencing solution — front-end built with React, back-end powered by Node.js, and WebRTC-based real-time communication via Socket.io.
+**Vakyam Meeting** is a complete video conferencing solution — front-end built with React, back-end powered by Node.js, and WebRTC-based real-time communication via Socket.io.
 
 ---
 
@@ -31,7 +31,6 @@
 
 ## Project Structure
 
-Zoom/
 ├── backend/
 │ ├── server.js
 │ ├── routes/
@@ -53,8 +52,8 @@ Zoom/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/apna-college/Zoom.git
-cd Zoom
+git clone https://github.com/MohanChoukse/Vakyam-Meeting-Site
+cd
 
 2. Setup Backend
 
