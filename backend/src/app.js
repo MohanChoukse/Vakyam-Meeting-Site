@@ -8,6 +8,9 @@ import { connectToSocket } from "./controllers/socketManager.js";
 
 import cors from "cors";
 import userRoutes from "./routes/users.routes.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 const server = createServer(app);
@@ -19,17 +22,21 @@ app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ limit: "40kb", extended: true }));
 
 app.use("/api/v1/users", userRoutes);
-
+// console.log("MONGO_URL:", process.env.MONGO_URL);
 const start = async () => {
   app.set("mongo_user");
   const connectionDb = await mongoose.connect(
-    "mongodb+srv://mohanchouksey497:mohanchouksey497@cluster0.zz1soch.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    process.env.MONGO_URL
   );
 
   console.log(`MONGO Connected DB HOst: ${connectionDb.connection.host}`);
   server.listen(app.get("port"), () => {
-    console.log("LISTENIN ON PORT 8000");
+    console.log(`LISTENIN ON PORT ${app.get("port")}`);
   });
 };
 
+
+
+
 start();
+

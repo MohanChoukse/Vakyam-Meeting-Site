@@ -1,6 +1,6 @@
 import axios from "axios";
 import httpStatus from "http-status";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import server from "../environment";
 
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
 
     const router = useNavigate();
 
-    const handleRegister = async (name, username, password) => {
+    const handleRegister = useCallback(async (name, username, password) => {
         try {
             let request = await client.post("/register", {
                 name: name,
@@ -37,9 +37,9 @@ export const AuthProvider = ({ children }) => {
         } catch (err) {
             throw err;
         }
-    }
+    }, []);
 
-    const handleLogin = async (username, password) => {
+    const handleLogin = useCallback(async (username, password) => {
         try {
             let request = await client.post("/login", {
                 username: username,
@@ -56,9 +56,9 @@ export const AuthProvider = ({ children }) => {
         } catch (err) {
             throw err;
         }
-    }
+    }, [router]);
 
-    const getHistoryOfUser = async () => {
+    const getHistoryOfUser = useCallback(async () => {
         try {
             let request = await client.get("/get_all_activity", {
                 params: {
@@ -70,9 +70,9 @@ export const AuthProvider = ({ children }) => {
          (err) {
             throw err;
         }
-    }
+    }, []);
 
-    const addToUserHistory = async (meetingCode) => {
+    const addToUserHistory = useCallback(async (meetingCode) => {
         try {
             let request = await client.post("/add_to_activity", {
                 token: localStorage.getItem("token"),
@@ -82,11 +82,13 @@ export const AuthProvider = ({ children }) => {
         } catch (e) {
             throw e;
         }
-    }
+    }, []);
 
 
     const data = {
-        userData, setUserData, addToUserHistory, getHistoryOfUser, handleRegister, handleLogin
+        userData, setUserData, addToUserHistory, getHistoryOfUser,
+        handleRegister, handleLogin,
+        login: handleLogin, register: handleRegister
     }
 
     return (
