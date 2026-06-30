@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Play, Shield, Users } from 'lucide-react';
+import { AuthContext } from '../contexts/AuthContext';
 export default function Hero() {
     const navigate = useNavigate();
+    const { userData } = useContext(AuthContext);
     return (
         <section className="hero" id="top">
             <div className="hero-bg-blob-1" />
@@ -31,9 +33,9 @@ export default function Hero() {
                     <div className="hero-buttons">
                         <button
                             className="btn-primary"
-                            onClick={() => navigate('/auth')}
+                            onClick={() => navigate(userData?.token ? '/home' : '/auth')}
                         >
-                            Start Meeting <ArrowRight size={18} />
+                            {userData?.token ? 'Go to Dashboard' : 'Start Meeting'} <ArrowRight size={18} />
                         </button>
                         <button
                             className="btn-secondary"

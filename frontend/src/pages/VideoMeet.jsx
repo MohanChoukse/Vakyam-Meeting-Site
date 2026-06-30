@@ -527,7 +527,12 @@ export default function VideoMeetComponent() {
                 window.localStream.getTracks().forEach(track => track.stop())
             }
         } catch (e) { }
-        window.location.href = "/"
+        
+        if (localStorage.getItem("token")) {
+            window.location.href = "/home"
+        } else {
+            window.location.href = "/"
+        }
     }
 
     const addMessage = (data, sender, socketIdSender) => {

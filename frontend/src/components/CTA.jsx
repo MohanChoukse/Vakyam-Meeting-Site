@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { AuthContext } from '../contexts/AuthContext';
 
 export default function CTA() {
   const navigate = useNavigate();
+  const { userData } = useContext(AuthContext);
 
   return (
     <section className="cta-section section">
@@ -24,9 +26,9 @@ export default function CTA() {
             </p>
             <button
               className="btn-cta"
-              onClick={() => navigate('/auth')}
+              onClick={() => navigate(userData?.token ? '/home' : '/auth')}
             >
-              Start Meeting <ArrowRight size={20} />
+              {userData?.token ? 'Go to Dashboard' : 'Start Meeting'} <ArrowRight size={20} />
             </button>
           </div>
         </motion.div>

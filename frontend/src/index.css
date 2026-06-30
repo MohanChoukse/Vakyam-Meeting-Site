@@ -167,3 +167,31 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas,
         "Courier New", monospace;
 }
+
+/* ============================================
+   Global Overlay Modal Styles
+   ============================================ */
+.overlay-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    width: 400px;
+    max-width: 90vw;
+    text-align: center;
+    box-shadow: var(--shadow-2xl);
+}

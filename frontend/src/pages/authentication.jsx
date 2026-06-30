@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -18,8 +18,14 @@ export default function Authentication() {
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { login, register } = useContext(AuthContext);
+  const { login, register, userData } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userData?.token) {
+      navigate('/home');
+    }
+  }, [userData, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
