@@ -23,6 +23,21 @@ export const AuthProvider = ({ children }) => {
         return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=111111&color=FCFCF9`;
     };
 
+    const handleLogout = useCallback((redirect = true) => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("userId");
+        localStorage.removeItem("name");
+        localStorage.removeItem("email");
+        localStorage.removeItem("loginTime");
+        
+        setUserData(null);
+        setIsAuthenticated(false);
+        
+        if (redirect && location.pathname !== '/' && location.pathname !== '/auth') {
+            router("/auth");
+        }
+    }, [router, location.pathname]);
+
     const restoreSession = useCallback(() => {
         setLoading(true);
         const token = localStorage.getItem("token");
@@ -61,27 +76,14 @@ export const AuthProvider = ({ children }) => {
         // If we reach here, session is invalid or expired
         handleLogout(false);
         setLoading(false);
-    }, []);
+    }, [handleLogout]);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         restoreSession();
     }, [restoreSession]);
 
-    const handleLogout = useCallback((redirect = true) => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("userId");
-        localStorage.removeItem("name");
-        localStorage.removeItem("email");
-        localStorage.removeItem("loginTime");
-        
-        setUserData(null);
-        setIsAuthenticated(false);
-        
-        if (redirect && location.pathname !== '/' && location.pathname !== '/auth') {
-            router("/auth");
-        }
-    }, [router, location.pathname]);
+
 
     const handleLogin = useCallback(async (username, password) => {
         try {

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Video, VideoOff, Mic, MicOff, ArrowLeft, Shield, Globe, Monitor, Settings2, ChevronDown } from 'lucide-react';
+import { Video, VideoOff, Mic, MicOff, ArrowLeft, Shield, Globe, Monitor, ChevronDown } from 'lucide-react';
 import styles from '../styles/preJoin.module.css';
 
 export default function PreJoinScreen({ onJoin, meetingCode }) {

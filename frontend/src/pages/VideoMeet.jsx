@@ -70,8 +70,6 @@ export default function VideoMeetComponent() {
     // socketId -> { socketId, username, joinedAt }
     let [participants, setParticipants] = useState({});
     let [isSharingScreen, setIsSharingScreen] = useState(false);
-    let [cameraWasOnBeforeShare, setCameraWasOnBeforeShare] = useState(true);
-    let [presenter, setPresenter] = useState(null); // { socketId, username }
     let [screenAvailable] = useState(
         typeof navigator !== 'undefined' && 
         typeof navigator.mediaDevices !== 'undefined' && 
@@ -243,7 +241,6 @@ export default function VideoMeetComponent() {
 
         setIsSharingScreen(false);
         setScreen(false);
-        setPresenter(null);
 
         socketRef.current?.emit('screen-share-stopped', window.location.pathname.replace('/', ''), username);
     }, [username, setScreen]);
@@ -278,7 +275,6 @@ export default function VideoMeetComponent() {
 
         setMyStream(combinedStream);
         setIsSharingScreen(true);
-        setPresenter({ socketId: socketIdRef.current, username });
 
         socketRef.current?.emit('screen-share-started', window.location.pathname.replace('/', ''), username);
 
@@ -376,11 +372,10 @@ export default function VideoMeetComponent() {
                 if (isSharingScreenRef.current) {
                     stopScreenShareRef.current();
                 }
-                setPresenter(data);
             })
 
             socketRef.current.on('screen-share-stopped', (data) => {
-                setPresenter(null);
+                // handle if needed
             })
 
             socketRef.current.on('user-left', (id) => {
