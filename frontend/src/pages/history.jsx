@@ -3,7 +3,7 @@ import { AuthContext } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  ArrowLeft, Search, Copy, ExternalLink, Video, Plus, Trash2, CheckCircle, Clock, Users, Link
+  ArrowLeft, Search, ExternalLink, Video, Plus, Trash2, Clock, Users, Link
 } from 'lucide-react';
 import withAuth from '../utils/withAuth';
 import Navbar from '../components/Navbar';

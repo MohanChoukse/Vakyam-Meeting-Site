@@ -1,6 +1,6 @@
 import axios from "axios";
 import httpStatus from "http-status";
-import { createContext, useContext, useState, useCallback, useEffect } from "react";
+import { createContext, useState, useCallback, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import server from "../environment";
 

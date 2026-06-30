@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, User, Mail, Calendar, Video, Clock } from 'lucide-react';
+import { ArrowLeft, User, Mail, Video, Clock } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import withAuth from '../utils/withAuth';
 import { AuthContext } from '../contexts/AuthContext';

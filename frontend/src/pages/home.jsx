@@ -3,7 +3,7 @@ import withAuth from '../utils/withAuth';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Video, LogIn, Clock, Plus, ArrowRight, User, Copy, CheckCircle2, ChevronRight, Users, Play, AlertCircle
+  Video, LogIn, Clock, Plus, ArrowRight, User, ChevronRight, Users, Play, AlertCircle
 } from 'lucide-react';
 import { AuthContext } from '../contexts/AuthContext';
 import { ToastContext } from '../contexts/ToastContext';
@@ -112,7 +112,7 @@ function HomeComponent() {
       });
       
       if (response.data.success) {
-        const { meetingCode, meetingURL } = response.data.data;
+        const { meetingCode } = response.data.data;
         try {
           await navigator.clipboard.writeText(`${window.location.origin}/${meetingCode}`);
           showToast("Meeting created and link copied!", "success");

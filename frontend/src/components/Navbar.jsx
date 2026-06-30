@@ -67,12 +67,12 @@ export default function Navbar() {
         transition={{ duration: 0.5 }}
       >
         <div className="navbar-inner">
-          <a className="navbar-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
+          <div className="navbar-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
             <div className="navbar-logo-icon">
               <Video size={20} />
             </div>
             <span className="brand-font navbar-brand-text">VAKYAM</span>
-          </a>
+          </div>
 
           <div className="navbar-links">
             {linksToShow.map((link) => (
@@ -185,12 +185,12 @@ export default function Navbar() {
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             >
               <div className="navbar-mobile-header">
-                <a className="navbar-logo" onClick={() => navigate('/')}>
+                <div className="navbar-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
                   <div className="navbar-logo-icon">
                     <Video size={18} />
                   </div>
                   <span className="brand-font navbar-brand-text">VAKYAM</span>
-                </a>
+                </div>
                 <button className="navbar-mobile-close" onClick={() => setMobileOpen(false)}>
                   <X size={24} />
                 </button>
